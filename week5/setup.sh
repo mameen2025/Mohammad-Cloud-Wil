@@ -10,11 +10,12 @@ echo "$ADMIN_TOKEN" | gh auth login --with-token --hostname github.com
 SUBSCRIPTION_ID=$(az account show --query id -o tsv)
 TENANT_ID=$(az account show --query tenantId -o tsv)
 
-SP_NAME="gh-actions-sp"
+SP_NAME="gh-actions-sp$RANDOM"
+echo "export SP_NAME=$SP_NAME" >> .env # store SP_NAME in .env
 APP_ID=$(az ad sp list --display-name "$SP_NAME" --query "[0].appId" -o tsv || true)
 
 if [[ -z "$APP_ID" ]]; then
-  echo "🆕 Creating new service principal: $SP_NAME"
+  echo "export Creating new service principal: $SP_NAME"
   APP_ID=$(az ad app create --display-name "$SP_NAME" --query appId -o tsv)
   az ad sp create --id "$APP_ID"
 else

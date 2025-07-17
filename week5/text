@@ -1,0 +1,3 @@
+APP_NAME="lab5app$RANDOM$RANDOM"
+echo "export APP_NAME=$APP_NAME" >> .env
+source .env

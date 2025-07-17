@@ -10,9 +10,8 @@ jokes = [
     "What is a programmer’s favorite hangout place? The Foo Bar."
 ]
 
+
 @app.route("/joke")
-def joke():
+def get_joke():
     return jsonify({"joke": random.choice(jokes)})
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000)

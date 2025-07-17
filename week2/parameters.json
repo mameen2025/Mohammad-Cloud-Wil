@@ -1,0 +1,10 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "parameters": {
+  "webAppName": { "value": "demo-webapp-unique2026" },
+    "location": { "value": "australiaeast" },
+    //"sqlServerName": { "value": "demosqlserveruniq2026" },
+    // "sqlAdmin": { "value": "adminuser" },
+    //"sqlPassword": { "value": "YourP@ssw0rd123" }
+  }
+}

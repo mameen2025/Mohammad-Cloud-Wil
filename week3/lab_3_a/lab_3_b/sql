@@ -1,0 +1,21 @@
+SELECT DB_NAME();
+GO
+
+CREATE TABLE students (
+  id INT PRIMARY KEY,
+  name NVARCHAR(100),
+  enrolled_date DATE
+);
+GO
+
+SELECT TABLE_SCHEMA, TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE';
+GO
+
+INSERT INTO students (id, name, enrolled_date)
+VALUES (1, 'Alice Smith', '2024-06-01');
+GO
+
+SELECT * FROM students;
+GO
